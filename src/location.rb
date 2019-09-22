@@ -12,6 +12,10 @@ class Location
     raise ArgumentError.new("Cannot create location due to: #{ex.message}")
   end
   
+  def distance_from(another_location)
+   DistanceCalculator.new.distance_between(self, another_location)
+  end
+  
   private
   
   def check_range
@@ -23,5 +27,3 @@ class Location
     end
   end
 end
-
-# location.distance_from(another_location)

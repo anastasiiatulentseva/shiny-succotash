@@ -11,7 +11,7 @@ RSpec.describe Location do
     expect{ Location.new(nil, 30.3146) }.to raise_error(Location::Error)
   end
   
-  it 'does not accept nil for latitude' do
+  it 'does not accept nil for longitude' do
     expect{ Location.new(59.9398, nil) }.to raise_error(Location::Error)
   end
   
@@ -19,7 +19,7 @@ RSpec.describe Location do
     expect{ Location.new("invalid_value", 30.3146) }.to raise_error(Location::Error)
   end
   
-  it 'does not accept invalid floats for latitude' do
+  it 'does not accept invalid floats for longitude' do
     expect{ Location.new(59.9398, "invalid_value") }.to raise_error(Location::Error)
   end
   
@@ -29,5 +29,12 @@ RSpec.describe Location do
   
   it 'raises error if longitude is out of range' do
     expect{ Location.new(59.9398, -230.5803) }.to raise_error(Location::InvalidRangeError)
+  end
+  
+  it 'calculates distance from another location' do
+    red_square = Location.new(55.7539, 37.6208)
+    hermitage = Location.new(59.9398, 30.3146)
+    expect(red_square.distance_from(hermitage)).to be_within(0.1).of(634.57)
+    expect(red_square.distance_from(red_square)).to eq(0.0)
   end
 end

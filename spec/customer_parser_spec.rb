@@ -21,8 +21,9 @@ RSpec.describe CustomerParser do
   end
   
   context "invalid list" do
-    let(:customer_json) { valid_json << '{"latitude" => "51.92893", "user_id" => 1, "name" => "Alice Cahill", "longitude" => "-10.27699"}
-' }
+    let(:customer_json) { 
+      valid_json << '{"latitude" => "51.92893", "user_id" => 1, "name" => "Alice Cahill", "longitude" => "-10.27699"}' 
+    }
     
     it 'does not create customer from invalid json' do
       expect { subject }.to raise_error(CustomerParser::MalformedInputFileError)
