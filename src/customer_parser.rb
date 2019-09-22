@@ -18,3 +18,5 @@ class CustomerParser
   attr_reader :reader
 end
 
+
+

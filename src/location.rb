@@ -13,7 +13,7 @@ class Location
   end
   
   def distance_from(another_location)
-   DistanceCalculator.new.distance_between(self, another_location)
+    DistanceCalculator.new.distance_between(self, another_location)
   end
   
   private
