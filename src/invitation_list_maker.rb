@@ -22,4 +22,4 @@ class InvitationListMaker
 end
 
 
-p InvitationListMaker.new(users: CustomerListGetter.list, range: 100).invitable_users
+# p InvitationListMaker.new(users: CustomerListGetter.list, range: 100).invitable_users
