@@ -9,3 +9,7 @@ To run application:
 2. Run the main script 
 
        ruby application.rb
+
+To run tests:
+          
+    rspec spec
